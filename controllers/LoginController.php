@@ -13,6 +13,7 @@ class LoginController
         $user = new User();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $user->sync($_POST);
 
             /* Verificar que no dejo campos vacios */
@@ -27,18 +28,18 @@ class LoginController
                 } else {
                     /* El usuario si existe y reviso que su contraseña sea correcta */
                     if (password_verify($_POST['password'], $user->password)) {
-                        if ($user->admin) {
-                            if (!isset($_SESSION)) {
-                                session_start();
-                            }
-                            $_SESSION['admin'] = true;
-                        }
                         if (!isset($_SESSION)) {
                             session_start();
+                        }
+                        if ($user->admin) {
+                            $_SESSION['admin'] = true;
+                        } else {
+                            $_SESSION['admin'] = false;
                         }
                         $_SESSION['login'] = true;
                         $_SESSION['id'] = $user->id;
                         $_SESSION['fullname'] = $user->fullname;
+                        $_SESSION['imagen'] = $user->imagen;
                         header('Location: /dashboard');
                     } else {
                         $alertasInput['noPassword'] = 'Password incorrecto';
@@ -46,6 +47,7 @@ class LoginController
                 }
             }
         }
+
 
         $router->render('auth/login', [
             'titulo' => 'Inicia Sesión',
@@ -57,6 +59,10 @@ class LoginController
     public static function logout()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isAuth()) {
+                header('location: /');
+            }
+
             if (!isset($_SESSION)) {
                 session_start();
             }

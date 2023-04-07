@@ -8,7 +8,7 @@
 
     <form action="/" method="post" class="mt-5">
         <label for="username" class="form-label fs-3">Username:</label>
-        <input type="text" name="username" id="username" class="form-control fs-3" placeholder="Escribe tu username" value="<?php echo $user->username; ?>">
+        <input type="text" name="username" id="username" class="form-control fs-3" placeholder="Escribe tu username" value="<?php echo $user->username ?? ''; ?>">
         <span class="text-danger d-block"><?php if (isset($alertasInput['username'])) echo "* " . $alertasInput['username']; ?></span>
         <span class="text-danger d-block"><?php if (isset($alertasInput['noUsername'])) echo "* " . $alertasInput['noUsername']; ?></span>
 

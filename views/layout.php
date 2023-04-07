@@ -16,11 +16,10 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preload" href="/build/css/app.css" as="style">
-    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
 </head>
 
 <body class="dashboard">
-
     <header class="dashboard__header">
 
         <div class="dashboard__mobile">
@@ -66,15 +65,20 @@
             </div>
 
             <a class="text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <picture>
+                    <source srcset="<?php echo $_ENV['HOST'] . '/build/img/users/' . $_SESSION['imagen']; ?>.webp" type="image/webp">
+                    <img loading="lazy" src="<?php echo $_ENV['HOST'] . '/build/img/users/' . $_SESSION['imagen']; ?>.png" alt="<?php echo $_SESSION['imagen']; ?>" class="perfil">
+                </picture>
                 <?php echo $_SESSION['fullname'] ?>
             </a>
             <ul class="dropdown-menu fs-2">
+                <li><a class="dropdown-item" href="/users/update?id=<?php echo $_SESSION['id'] ?>">Mi perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li>
                     <form method="POST" action="/logout" class="">
                         <input type="submit" value="Cerrar Sesión" class="dropdown-item">
                     </form>
                 </li>
-                <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
             </ul>
 
         </div>
@@ -84,15 +88,20 @@
                 <h1 class="dashboard__logo"><?php echo $titulo ?? '' ?></h1>
 
                 <a class="text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <picture>
+                        <source srcset="<?php echo $_ENV['HOST'] . '/build/img/users/' . $_SESSION['imagen']; ?>.webp" type="image/webp">
+                        <img loading="lazy" src="<?php echo $_ENV['HOST'] . '/build/img/users/' . $_SESSION['imagen']; ?>.png" alt="<?php echo $_SESSION['imagen']; ?>" class="perfil">
+                    </picture>
                     <?php echo $_SESSION['fullname'] ?>
                 </a>
                 <ul class="dropdown-menu fs-3">
+                    <li><a class="dropdown-item" href="/users/update?id=<?php echo $_SESSION['id'] ?>">Mi perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
                     <li>
                         <form method="POST" action="/logout" class="">
                             <input type="submit" value="Cerrar Sesión" class="dropdown-item">
                         </form>
                     </li>
-                    <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
                 </ul>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\User;
 use MVC\Router;
 
 class DashboardController

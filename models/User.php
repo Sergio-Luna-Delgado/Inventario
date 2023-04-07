@@ -19,7 +19,7 @@ class User extends ActiveRecord {
         $this->fullname = $args['fullname'] ?? '';
         $this->username = $args['username'] ?? '';
         $this->password = $args['password'] ?? '';
-        $this->imagen = $args['imagen'] ?? 'no-picture.png';
+        $this->imagen = $args['imagen'] ?? 'no-picture';
         $this->active = $args['active'] ?? 1;
         $this->admin = $args['admin'] ?? 0;
     }
@@ -110,6 +110,6 @@ class User extends ActiveRecord {
             self::$alertasInput['noPassword'] = 'El password debe contener al menos 8 caracteres';
         }
 
-        return self::$alertas;
+        return self::$alertasInput;
     }
 }
