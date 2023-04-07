@@ -15,7 +15,7 @@ class UserController
             header('location: /');
         }
 
-        $users = User::all();
+        $users = User::all('asc');
 
         $router->render('users/index', [
             'titulo' => 'Sistema de Usuarios',
@@ -139,13 +139,12 @@ class UserController
             } else {
                 $_POST['imagen'] = $user->imagen_actual;
             }
-
+            
             $user->sync($_POST);
-            $alertasInput = $user->validarNuevaCuenta();
-
+            $alertasInput = $user->comprobarActualizarDatos();
+            
             /* Revisar que alerta este vacio */
             if (empty($alertasInput)) {
-
                 /* Verificar que el usuario no este registrado y que no sea el actual admin */
                 $userActual = user::find($id);
 
@@ -235,16 +234,16 @@ class UserController
 
             if (!isset($user)) {
                 $data = array(
-                    'status' 	=> 'error',
-                    'code' 		=> 404,
-                    'message' 	=> 'No se pudo eliminar el usuario'
+                    'status'     => 'error',
+                    'code'         => 404,
+                    'message'     => 'No se pudo eliminar el usuario'
                 );
             } else {
                 $user->delete();
                 $data = array(
-                    'status' 	=> 'success',
-                    'code' 		=> 200,
-                    'message' 	=> 'El usuario se elimino exitosamente'
+                    'status'     => 'success',
+                    'code'         => 200,
+                    'message'     => 'El usuario se elimino exitosamente'
                 );
             }
 

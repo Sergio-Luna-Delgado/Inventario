@@ -93,10 +93,6 @@ class User extends ActiveRecord {
             self::$alertasInput['username'] = 'Nombre de usuario es obligatorio';
         }
 
-        if (!$this->password) {
-            self::$alertasInput['password'] = 'El password es obligatorio';
-        }
-
         return self::$alertasInput;
     }
 

@@ -37,10 +37,24 @@
                                 <i class="bi bi-pencil"></i>
                                 Editar
                             </a>
-                            <button type="button" class="btn btn-danger fs-3 m-1" onclick="eliminarUsuario(<?php echo $user->id; ?>)">
+                            <button type="button" class="btn btn-danger fs-3 m-1" data-bs-toggle="modal" data-bs-target="#borrarModal<?php echo $user->id; ?>"> <!-- onclick="eliminarUsuario(<?php echo $user->id; ?>)" -->
                                 <i class="bi bi-trash"></i>
                                 Eliminar
                             </button>
+                            <div class="modal fade" id="borrarModal<?php echo $user->id; ?>" tabindex="-1" aria-labelledby="borrarModalLabel<?php echo $user->id; ?>" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-1" id="borrarModalLabel<?php echo $user->id; ?>">¿Estas seguro en borrar el usuario?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <button type="button" class="btn btn-secondary mt-5 fs-2" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary mt-5 fs-2" onclick="eliminarUsuario(<?php echo $user->id; ?>)">Borrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     <?php endif; ?>
                 </tr>

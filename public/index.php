@@ -33,6 +33,9 @@ $router->post('/users/delete', [UserController::class, 'delete']);
 
 /* Categorias */
 $router->get('/categories', [CategoryController::class, 'index']);
+$router->post('/categories', [CategoryController::class, 'index']);
+$router->post('/categories/update', [CategoryController::class, 'update']);
+$router->post('/categories/delete', [CategoryController::class, 'delete']);
 
 /* Productos */
 $router->get('/products', [ProductController::class, 'index']);

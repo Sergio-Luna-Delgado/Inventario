@@ -117,9 +117,9 @@ class ActiveRecord
     }
 
     /* Todos los registros */
-    public static function all()
+    public static function all($orden = 'DESC')
     {
-        $query = "SELECT * FROM " . static::$tabla;
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id $orden";
         $resultado = self::QuerySQL($query);
         return $resultado;
     }

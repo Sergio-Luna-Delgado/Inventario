@@ -6,7 +6,7 @@
     </a>
 </div>
 
-<form method="post" class="mt-5 fs-2" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" class="mt-5 fs-2">
     <?php include 'formulario.php'; ?>
     <input type="submit" value="Actualizar Usuario" class="btn btn-primary fs-3 px-5 py-2 mt-5">
 </form>

@@ -21,11 +21,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST">
-                        <input type="password" name="password" id="password" class="form-control fs-2" placeholder="Escribe tu contraseña">
-                        <button type="button" class="btn btn-secondary mt-5 fs-2" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary mt-5 fs-2" onclick="cambiarPassword(<?php echo $user->id; ?>)">Guardar Contraseña</button>
-                    </form>
+                    <input type="password" id="password" class="form-control fs-2" placeholder="Escribe tu contraseña">
+                    <button type="button" class="btn btn-secondary mt-5 fs-2" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary mt-5 fs-2" onclick="cambiarPassword(<?php echo $user->id; ?>)">Guardar Contraseña</button>
                 </div>
             </div>
         </div>
