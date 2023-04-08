@@ -37,7 +37,7 @@
                                 <i class="bi bi-pencil"></i>
                                 Editar
                             </a>
-                            <button type="button" class="btn btn-danger fs-3 m-1" data-bs-toggle="modal" data-bs-target="#borrarModal<?php echo $user->id; ?>"> <!-- onclick="eliminarUsuario(<?php echo $user->id; ?>)" -->
+                            <button type="button" class="btn btn-danger fs-3 m-1" data-bs-toggle="modal" data-bs-target="#borrarModal<?php echo $user->id; ?>">
                                 <i class="bi bi-trash"></i>
                                 Eliminar
                             </button>
