@@ -2,7 +2,7 @@
     <h1 class="fs-1 fw-bold">Gestiona a todos los productos del sistema</h1>
     <a href="/products/create" class="btn btn-primary fs-3">
         <i class="bi bi-plus-circle"></i>
-        Crear Producto
+        Agregar Producto
     </a>
 </div>
 
@@ -10,8 +10,8 @@
     <table class="table">
         <thead>
             <tr class="text-center">
-                <th scope="col">Codigo</th>
-                <th scope="col">Categoria</th>
+                <th scope="col">Código</th>
+                <th scope="col">Categoría</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio</th>
                 <!-- <th scope="col">Precio de compra</th> -->
@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <button type="button" class="btn btn-secondary mt-5 fs-2" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary mt-5 fs-2" onclick="eliminarProducto(<?php echo $product->id; ?>)">Borrar</button>
+                                        <button type="button" class="btn btn-primary mt-5 fs-2" onclick="eliminarRegistro(<?php echo $product->id; ?>, 'products')">Borrar</button>
                                     </div>
                                 </div>
                             </div>

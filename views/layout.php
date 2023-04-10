@@ -45,7 +45,7 @@
                         </a>
                         <a href="/categories" class="<?php echo pagina_actual('/categories') ? 'text-warning' : 'text-black'; ?>">
                             <i class="bi bi-tag-fill"></i>
-                            Categorias
+                            Categorías
                         </a>
                         <a href="/products" class="<?php echo pagina_actual('/products') ? 'text-warning' : 'text-black'; ?>">
                             <i class="bi bi-grid-fill"></i>
@@ -123,7 +123,7 @@
                 </a>
                 <a href="/categories" class="<?php echo pagina_actual('/categories') ? 'text-warning' : 'text-white'; ?>">
                     <i class="bi bi-tag-fill"></i>
-                    Categorias
+                    Categorías
                 </a>
                 <a href="/products" class="<?php echo pagina_actual('/products') ? 'text-warning' : 'text-white'; ?>">
                     <i class="bi bi-grid-fill"></i>

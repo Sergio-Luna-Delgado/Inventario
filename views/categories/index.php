@@ -17,7 +17,7 @@
             <input type="text" name="name" id="name" class="form-control fs-2" placeholder="Nombre de la categoria" value="<?php echo $category->name; ?>">
             <span class="text-danger d-block"><?php if (isset($alertasInput['name'])) echo "* " . $alertasInput['name']; ?></span>
             <span class="text-danger d-block"><?php if (isset($alertasInput['existeName'])) echo "* " . $alertasInput['existeName']; ?></span>
-            <input type="submit" class="btn btn-primary fs-3 mt-5 mb-3" value="Crear Categoria">
+            <input type="submit" class="btn btn-primary fs-3 mt-5 mb-3" value="Agregar Categoria">
         </form>
 
     </div>
@@ -31,7 +31,7 @@
             <table class="table">
                 <thead>
                     <tr class="text-center">
-                        <th scope="col">ID</th>
+                        <th scope="col">Código</th>
                         <th scope="col">Nombre</th>
                         <th scope="col"></th>
                     </tr>
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-danger fs-3 m-1" onclick="eliminarCategoria(<?php echo $cate->id; ?>)">
+                                <button type="button" class="btn btn-danger fs-3 m-1" onclick="eliminarRegistro(<?php echo $cate->id; ?>, 'categories')">
                                     <i class="bi bi-trash"></i>
                                     Eliminar
                                 </button>

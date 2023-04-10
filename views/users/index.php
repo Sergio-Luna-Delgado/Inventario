@@ -2,7 +2,7 @@
     <h1 class="fs-1 fw-bold">Gestiona a todos los usuarios con acceso al sistema</h1>
     <a href="/users/create" class="btn btn-primary fs-3">
         <i class="bi bi-plus-circle"></i>
-        Crear Usuario
+        Agregar Usuario
     </a>
 </div>
 
@@ -10,11 +10,11 @@
     <table class="table">
         <thead>
             <tr class="text-center">
-                <th scope="col">ID</th>
+                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Username</th>
                 <th scope="col">Imagen</th>
-                <th scope="col">Estatus</th>
+                <th scope="col">Estado</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <button type="button" class="btn btn-secondary mt-5 fs-2" data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary mt-5 fs-2" onclick="eliminarUsuario(<?php echo $user->id; ?>)">Borrar</button>
+                                            <button type="button" class="btn btn-primary mt-5 fs-2" onclick="eliminarRegistro(<?php echo $user->id; ?>, 'users', true)">Borrar</button>
                                         </div>
                                     </div>
                                 </div>

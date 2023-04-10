@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label for="nameProduct" class="form-label fw-bold">Nombre</label>
-    <input type="text" name="name" id="nameProduct" class="form-control fs-2" placeholder="Escribe tu nombre completo" value="<?php echo $product->name; ?>">
+    <input type="text" name="name" id="nameProduct" class="form-control fs-2" placeholder="Escribe el nombre del producto" value="<?php echo $product->name; ?>">
     <span class="text-danger d-block"><?php if (isset($alertasInput['name'])) echo "* " . $alertasInput['name']; ?></span>
 </div>
 
@@ -11,7 +11,7 @@
 </div> -->
 
 <div class="mb-3">
-    <label for="buy_price" class="form-label fw-bold">Precio de Venta</label>
+    <label for="sale_price" class="form-label fw-bold">Precio de Venta</label>
     <input type="number" name="sale_price" id="sale_price" class="form-control fs-2" placeholder="$" min="1" step="any" value="<?php echo $product->sale_price; ?>">
     <span class="text-danger d-block"><?php if (isset($alertasInput['sale_price'])) echo "* " . $alertasInput['sale_price']; ?></span>
 </div>

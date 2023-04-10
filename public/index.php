@@ -47,6 +47,9 @@ $router->post('/products/delete', [ProductController::class, 'delete']);
 
 /* Ventas */
 $router->get('/sales', [SaleController::class, 'index']);
+$router->get('/sales/create', [SaleController::class, 'create']);
+$router->post('/sales/create', [SaleController::class, 'create']);
+$router->post('/sales/delete', [SaleController::class, 'delete']);
 $router->get('/reports', [SaleController::class, 'report']);
 
 
