@@ -67,6 +67,10 @@ class Router
 
         /* Utilizar el layout de acuerdo a la URL */
         $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+        if(str_contains($url_actual, 'reports/print')) {
+            include_once __DIR__ . '/views/layout-report.php';
+            die();
+        }
         if (strcmp($url_actual, '/')) {
             include_once __DIR__ . '/views/layout.php';
         } else {

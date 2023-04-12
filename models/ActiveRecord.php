@@ -172,11 +172,31 @@ class ActiveRecord
     }
 
     /* Obtener Registros con cierta cantidad */
-    public static function get($limite)
+    public static function get($order = 'DESC', $limit)
     {
-        $query = "SELECT * FROM " . static::$tabla . " LIMIT ${limite}";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id ${order} LIMIT ${limit}";
         $resultado = self::QuerySQL($query);
-        return array_shift($resultado); /* Crea un arreglo con el indice cero, evita hacer esto: cita[0]->hora SOLO TRAE UN SOLO RESULTADO*/
+        return $resultado;
+    }
+
+    public static function between($col, $start, $end, $order = 'DESC')
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ${col} BETWEEN '${start}' AND '${end}' ORDER BY $col ${order}";
+        $resultado = self::QuerySQL($query);
+        return $resultado;
+    }
+
+    /* Traer un total de registros */
+    public static function total($columna = '', $valor = '')
+    {
+        $query = "SELECT COUNT(*) FROM " . static::$tabla;
+        if ($columna) {
+            $query .= " WHERE ${columna} = ${valor}";
+        }
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+
+        return array_shift($total);
     }
 
     /* crea un nuevo registro */

@@ -141,4 +141,56 @@ class SaleController
             'titulo' => 'Reporte de Ventas',
         ]);
     }
+
+    public static function print(Router $router)
+    {
+        if (isAuth()) {
+            header('location: /');
+        }
+
+        if(!isset($_GET['month'])) {
+            $start = $_GET['start'];
+            $startFilter = filter_var($start, FILTER_SANITIZE_NUMBER_INT);
+            if (!$startFilter) {
+                header('location: /reports');
+            }
+            $startArgs = explode('-', $startFilter);
+            /* Con esto prevengo que el admin invente meses o exceda los dias del mes */
+            if (!checkdate($startArgs[1], $startArgs[2], $startArgs[0])) {
+                header('location: /404');
+            }
+    
+            $end = $_GET['end'] ?? $start;
+            $endFilter = filter_var($end, FILTER_SANITIZE_NUMBER_INT);
+            if (!$endFilter) {
+                header('location: /reports');
+            }
+            $endArgs = explode('-', $endFilter);
+            /* Con esto prevengo que el admin invente meses o exceda los dias del mes */
+            if (!checkdate($endArgs[1], $endArgs[2], $endArgs[0])) {
+                header('location: /404');
+            }
+    
+            $sales = Sale::between('date', $startFilter, $endFilter);
+            foreach ($sales as $sale) {
+                $sale->product = Product::find($sale->product_ID);
+            }
+        } else {
+            $month = date('m');
+            $year = date('Y');
+            $sales = Sale::between('date', $year . '-' . $month . '-1', $year . '-' . $month . '-31', 'ASC');
+            foreach ($sales as $sale) {
+                $sale->product = Product::find($sale->product_ID);
+            }
+        }
+
+        $router->render('sales/print', [
+            'titulo' => 'Reporte de ventas',
+            'start' => $startFilter ?? '',
+            'end' => $endFilter ?? '',
+            'month' => $_GET['month'] ?? '',
+            'sales' => $sales,
+            'total' => 0,
+        ]);
+    }
 }

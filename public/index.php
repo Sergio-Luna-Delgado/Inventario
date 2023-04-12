@@ -51,6 +51,7 @@ $router->get('/sales/create', [SaleController::class, 'create']);
 $router->post('/sales/create', [SaleController::class, 'create']);
 $router->post('/sales/delete', [SaleController::class, 'delete']);
 $router->get('/reports', [SaleController::class, 'report']);
+$router->get('/reports/print', [SaleController::class, 'print']);
 
 
 /* general, usuarios, categorias, productos y ventas */
