@@ -1,7 +1,11 @@
 <div class="d-flex flex-column justify-content-center h-100">
     <a href="/" class="d-flex align-items-center justify-content-center gap-3">
-        <img src="/build/img/icon.svg" alt="Logo Todolist" class="w-5">
-        <span class="fw-bold fs-1 text-black">Inventario</span>
+        <picture>
+            <source srcset="/build/img/logo.avif" type="image/avif">
+            <source srcset="/build/img/logo.webp" type="image/webp">
+            <img loading="lazy" src="/build/img/logo.jpg" alt="Logo Pasteleria" class="w-15">
+        </picture>
+        <!-- <span class="fw-bold fs-1 text-black">Inventario</span> -->
     </a>
 
     <p class="fw-bold fs-2 text-center mt-5">Inicia sesión para entrar al sistema de inventario</p>

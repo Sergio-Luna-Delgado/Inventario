@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario | <?php echo $titulo ?? '' ?></title>
+    <title>Arias Bakery | <?php echo $titulo ?? '' ?></title>
     <meta name="description" content="Sitio web diseñado para manejar el inventario de un negocio">
     <link rel="icon" type="image/svg" href="/build/img/icon-white.svg">
     <!-- Font -->

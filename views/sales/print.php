@@ -1,4 +1,9 @@
 <div id="reporte">
+    <picture class="d-flex justify-content-center">
+        <source srcset="/build/img/logo.avif" type="image/avif">
+        <source srcset="/build/img/logo.webp" type="image/webp">
+        <img loading="lazy" src="/build/img/logo.jpg" alt="Logo" class="w-15">
+    </picture>
     <h1 class="text-center fs-1 fw-bold mb-5 text-uppercase">Sistema de Inventario</h1>
     <div class="d-flex justify-content-end">
         <table class="table table-bordered w-auto text-center fs-2">
